@@ -31,3 +31,37 @@ persp(x, y, z,
              #the difference between 90° and the latitude.)
       col = "orange",shade=0.5)
 
+
+
+
+# Define the length and width (x and y coordinates)
+length <- seq(-5, 5, length.out = 30)  # X-axis: length
+width  <- seq(-5, 5, length.out = 30)  # Y-axis: width
+
+# Create grid of x and y values
+x <- length
+y <- width
+z <- outer(x, y, function(x, y) sqrt(x^2 + y^2))  # Z-axis: height (like a cone)
+
+# Plot the 3D surface
+persp(x, y, z,
+      main = "3D Perspective Plot of a Cone",
+      xlab = "Length",
+      ylab = "Width",
+      zlab = "Height",
+      theta = 60, phi = 20,
+      col = "orange", shade = 0.5)
+
+
+
+
+# Save as PNG
+png("3d_cone_plot.png", width = 800, height = 600)
+persp(x, y, z,
+      main = "3D Perspective Plot of a Cone",
+      xlab = "Length", ylab = "Width", zlab = "Height",
+      theta = 60, phi = 20,
+      col = "orange", shade = 0.5)
+dev.off()
+
+
